@@ -1,60 +1,41 @@
 import React from 'react';
-import Link from 'next/link';
+import styled from 'styled-components';
 
-const links = [
-  { href: 'https://github.com/segmentio/create-next-app', label: 'Github' }
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`;
-  return link;
-});
+import colors from '../constants/colors';
 
-const Nav = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link prefetch href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      <ul>
-        {links.map(
-          ({ key, href, label }) => (
-            <li key={key}>
-              <Link href={href}>
-                <a>{label}</a>
-              </Link>
-            </li>
-          )
-        )}
-      </ul>
-    </ul>
+const Nav = styled.nav`
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: ${colors.nav.background};
+    text-align: center;
+    width: 100%;
 
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system,BlinkMacSystemFont,Avenir Next,Avenir,Helvetica,sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
+    li {
+      display: inline-block;
+
       a {
-        color: #067df7;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
         text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
-  </nav>
-)
 
-export default Nav
+        &:hover {
+          color: ${colors.nav.hover};
+        }
+      }
+    }
+  }
+`;
+
+export default () => (
+  <Nav>
+    <ul>
+      <li><a href="/">글</a></li>
+      <li><a href="/">소개</a></li>
+    </ul>
+  </Nav>
+);

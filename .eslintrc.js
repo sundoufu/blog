@@ -36,5 +36,12 @@ module.exports = {
         }],
       },
     },
+    {
+      files: ['pages/_document.js', 'pages/_app.js'],
+      rules: {
+        'react/jsx-filename-extension': 'off',
+        'react/jsx-props-no-spreading': 'off',
+      },
+    },
   ],
 };
