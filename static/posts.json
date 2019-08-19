@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "category": "et",
+      "title": "exercitation amet",
+      "summary": "Commodo labore qui ex laborum dolor cillum voluptate enim fugiat et duis consectetur nostrud cillum. Occaecat veniam nisi amet anim do consequat culpa aliqua ex proident pariatur et. Esse voluptate minim culpa nulla anim do. Duis ea reprehenderit laboris mollit deserunt.\r\n",
+      "publishedAt": "2014-03-22"
+    },
+    {
+      "category": "velit",
+      "title": "irure id",
+      "summary": "Eiusmod ipsum laborum sunt ea enim duis et labore mollit non anim occaecat incididunt anim. Ad labore est dolore veniam consectetur mollit esse. Aliqua est reprehenderit Lorem elit mollit.\r\n",
+      "publishedAt": "2014-09-27"
+    },
+    {
+      "category": "enim",
+      "title": "quis et",
+      "summary": "Nostrud aute est ad cillum laborum. Sint occaecat irure ea elit adipisicing voluptate. Adipisicing deserunt elit pariatur veniam enim aute dolor sit aute Lorem veniam duis duis minim. Cillum duis adipisicing incididunt nostrud proident. Sit anim voluptate irure culpa laboris exercitation officia consectetur commodo est. Voluptate ullamco do eiusmod ex id ut quis velit aliquip incididunt cillum et cillum. Non commodo ad id sint.\r\n",
+      "publishedAt": "2018-07-18"
+    },
+    {
+      "category": "aute",
+      "title": "ex voluptate",
+      "summary": "In aliqua aliquip eu pariatur sit sint. Sit laborum et laborum irure pariatur adipisicing minim tempor esse deserunt qui. Commodo veniam commodo mollit do Lorem amet non laborum eiusmod reprehenderit ullamco in excepteur. Do id quis reprehenderit laborum eu officia est laboris magna incididunt. Deserunt adipisicing occaecat commodo voluptate.\r\n",
+      "publishedAt": "2014-10-30"
+    },
+    {
+      "category": "irure",
+      "title": "culpa ullamco",
+      "summary": "Consequat adipisicing ea nisi enim sint adipisicing magna aute magna elit id quis commodo est. Voluptate eu deserunt tempor consectetur do labore duis voluptate cupidatat commodo. Ea aute proident pariatur fugiat ut ut sunt cupidatat enim amet dolore exercitation. Officia aliqua qui sit ea labore.\r\n",
+      "publishedAt": "2019-01-14"
+    }
+  ]
+}
