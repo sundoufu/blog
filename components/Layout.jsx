@@ -21,6 +21,7 @@ const Layout = ({ children }) => (
       {`
         body {
           margin: 0;
+          overflow-y: scroll;
         }
       `}
     </style>
