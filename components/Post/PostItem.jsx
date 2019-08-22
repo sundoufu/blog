@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import ko from 'date-fns/locale/ko';
+import Link from 'next/link';
 
 import colors from '../../constants/colors';
 import propTypes from '../../constants/propTypes';
@@ -20,13 +21,17 @@ const PublishedAt = styled.div`
 `;
 
 const PostItem = (props) => {
-  const { title, summary, category, publishedAt } = props;
+  const { title, summary, category, slug, publishedAt } = props;
   return (
     <div>
       <div>{category}</div>
-      <Title>{title}</Title>
+      <Title>
+        <Link href={`posts/${slug}`}>
+          <a>{title}</a>
+        </Link>
+      </Title>
       <Summary>{summary}</Summary>
-      <PublishedAt>{format(publishedAt, 'PPPP', { locale: ko })}</PublishedAt>
+      <PublishedAt>{format(parseISO(publishedAt), 'PPPP', { locale: ko })}</PublishedAt>
     </div>
   );
 };

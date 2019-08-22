@@ -16,17 +16,17 @@ const PostItemWrapper = styled.div`
 `;
 
 const PostList = (props) => {
-  const { posts } = props;
+  const { posts = [] } = props;
 
   return (
     <div>
-      {posts.map(({ category, title, summary, publishedAt }) => (
-        <PostItemWrapper>
+      {posts.map(({ category, title, slug, summary, publishedAt }) => (
+        <PostItemWrapper key={slug}>
           <PostItem
-            key={title}
             category={category}
             title={title}
             summary={summary}
+            slug={slug}
             publishedAt={publishedAt}
           />
         </PostItemWrapper>

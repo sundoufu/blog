@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
-import { useMount } from 'react-use';
+import React from 'react';
+import Router from 'next/router';
 
-import PostList from '../components/Post/PostList';
-import api from '../api';
+function Page() {
+  return <div>Redirecting...</div>;
+}
 
-export default () => {
-  const [posts, setPosts] = useState([]);
-  const [error, setError] = useState(undefined);
-
-  useMount(() => {
-    api.posts()
-      .then((data) => setPosts(data))
-      .catch((err) => setError(err));
-  });
-
-  if (error) return 'Error!';
-
-  return (
-    <PostList posts={posts} />
-  );
+Page.getInitialProps = ({ res }) => {
+  if (res) {
+    res.writeHead(302, { Location: '/posts' });
+    res.end();
+  } else {
+    Router.push('/posts');
+  }
+  return {};
 };
+
+export default Page;

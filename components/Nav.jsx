@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 import colors from '../constants/colors';
 
@@ -34,8 +35,11 @@ const Nav = styled.nav`
 export default () => (
   <Nav>
     <ul>
-      <li><a href="/">글</a></li>
-      <li><a href="/">소개</a></li>
+      <li>
+        <Link href="/">
+          <a>Overscore</a>
+        </Link>
+      </li>
     </ul>
   </Nav>
 );
