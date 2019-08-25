@@ -8,6 +8,7 @@ import Nav from './Nav';
 const Container = styled.div`
   max-width: 600px;
   margin: 50px auto 0;
+  padding: 0 20px;
 `;
 
 const Layout = ({ children }) => (
@@ -22,6 +23,7 @@ const Layout = ({ children }) => (
         body {
           margin: 0;
           overflow-y: scroll;
+          font-family: 'Noto Serif KR', serif;
         }
       `}
     </style>

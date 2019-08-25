@@ -16,6 +16,7 @@ const Head = ({ title, description, url, ogImage }) => (
     <link rel="apple-touch-icon" href="/static/touch-icon.png" />
     <link rel="mask-icon" href="/static/favicon-mask.svg" color="#49B882" />
     <link rel="icon" href="/static/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR:400,700&display=swap&subset=korean" rel="stylesheet" />
     <meta property="og:url" content={url || defaultOGURL} />
     <meta property="og:title" content={title || ''} />
     <meta property="og:description" content={description || defaultDescription} />

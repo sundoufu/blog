@@ -10,6 +10,10 @@ import propTypes from '../../constants/propTypes';
 const Title = styled.h1`
   margin-top: 0;
   margin-bottom: 0;
+
+  a {
+    color: inherit;
+  }
 `;
 
 const Summary = styled.p`
