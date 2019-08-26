@@ -7,7 +7,7 @@ import Nav from './Nav';
 
 const Container = styled.div`
   max-width: 600px;
-  margin: 50px auto 0;
+  margin: 100px auto 0;
   padding: 0 20px;
 `;
 

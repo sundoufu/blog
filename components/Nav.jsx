@@ -5,41 +5,65 @@ import Link from 'next/link';
 import colors from '../constants/colors';
 
 const Nav = styled.nav`
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: ${colors.nav.background};
-    text-align: center;
-    width: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
 
-    li {
-      display: inline-block;
+  background-color: ${colors.nav.background};
+  list-style-type: none;
 
-      a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
+  a {
+    color: white;
+    margin: 14px;
+    text-decoration: none;
 
-        &:hover {
-          color: ${colors.nav.hover};
-        }
-      }
+    &:hover {
+      color: ${colors.nav.hover};
     }
+
+    i {
+      vertical-align: bottom;
+    }
+  }
+
+  .center {
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .right a {
+    float: right;
   }
 `;
 
 export default () => (
   <Nav>
-    <ul>
-      <li>
-        <Link href="/">
-          <a>Overscore</a>
-        </Link>
-      </li>
-    </ul>
+    <div className="center">
+      <Link href="/">
+        <a>
+          <b>Overscore</b>
+        </a>
+      </Link>
+    </div>
+    <div className="right">
+      <Link href="/login">
+        <a>
+          관리자 로그인
+        </a>
+      </Link>
+      <Link href="https://github.com/steinkim/blog-web">
+        <a target="_blank">
+          <span>GitHub </span>
+          <i className="material-icons">open_in_new</i>
+        </a>
+      </Link>
+    </div>
   </Nav>
 );
