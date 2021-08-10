@@ -24,7 +24,7 @@ export default IndexPage
 export const query = graphql`
 	query IndexPage {
 		allMarkdownRemark(
-			filter: { frontmatter: { Publish_Date: { start: { lte: "2021-05-22" } } } }
+			filter: { frontmatter: { Publish_Date: { start: { ne: null } } } }
 			sort: { fields: frontmatter___Publish_Date___start, order: DESC }
 		) {
 			edges {
