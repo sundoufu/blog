@@ -1,49 +1,87 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
-const IndexPage = ({data}) => {
-  const pages = data.allMarkdownRemark.edges
-  console.log(data);
+import Bio from "../components/bio"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
+
+const BlogIndex = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const posts = data.allMarkdownRemark.nodes
+
+  if (posts.length === 0) {
+    return (
+      <Layout location={location} title={siteTitle}>
+        <Seo title="글 목록" />
+        <Bio />
+        <p>
+          작성된 글이 없습니다.
+        </p>
+      </Layout>
+    )
+  }
+
   return (
-    <main>
-      <title>Jaeseong Kim</title>
-      <h1>게시글 목록</h1>
-      <ol>
-        {pages.map(({ node }) => (
-          <li key={node.fields.slug}>
-            <a href={node.fields.slug}>{node.frontmatter.title}</a>
-          </li>
-        ))}
+    <Layout location={location} title={siteTitle}>
+      <Seo title="글 목록" />
+      <Bio />
+      <ol style={{ listStyle: `none` }}>
+        {posts.map(post => {
+          const title = post.frontmatter.title || post.fields.slug
+
+          return (
+            <li key={post.fields.slug}>
+              <article
+                className="post-list-item"
+                itemScope
+                itemType="http://schema.org/Article"
+              >
+                <header>
+                  <h2>
+                    <Link to={post.fields.slug} itemProp="url">
+                      <span itemProp="headline">{title}</span>
+                    </Link>
+                  </h2>
+                  <small>{post.frontmatter.date}</small>
+                </header>
+                <section>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: post.frontmatter.description || post.excerpt,
+                    }}
+                    itemProp="description"
+                  />
+                </section>
+              </article>
+            </li>
+          )
+        })}
       </ol>
-    </main>
+    </Layout>
   )
 }
 
-export default IndexPage
+export default BlogIndex
 
-export const query = graphql`
-	query IndexPage {
-		allMarkdownRemark(
-			filter: { frontmatter: { Publish_Date: { start: { ne: null } } } }
-			sort: { fields: frontmatter___Publish_Date___start, order: DESC }
-		) {
-			edges {
-				node {
-					fields {
-						slug
-					}
-					frontmatter {
-						title
-						Publish_Date {
-							start
-						}
-						Tags {
-							name
-							color
-						}
-					}
-				}
-			}
-		}
-	}
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      nodes {
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+        }
+      }
+    }
+  }
 `
