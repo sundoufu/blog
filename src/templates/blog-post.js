@@ -10,6 +10,9 @@ const BlogPostTemplate = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
+  const publishDate = new Date(post.frontmatter.Publish_Date.start);
+  const publishDateString = publishDate.toLocaleDateString();
+
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
@@ -23,7 +26,7 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <p>{publishDateString}</p>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -84,6 +87,9 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        Publish_Date {
+          start
+        }
         description
       }
     }

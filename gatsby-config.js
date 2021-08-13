@@ -86,7 +86,8 @@ module.exports = {
             query: `
               {
                 allMarkdownRemark(
-                  sort: { order: DESC, fields: [frontmatter___date] },
+                  filter: { frontmatter: { Published: { eq: true } } }
+                  sort: { fields: [frontmatter___Publish_Date___start], order: DESC }
                 ) {
                   nodes {
                     excerpt
