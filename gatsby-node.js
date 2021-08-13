@@ -4,12 +4,18 @@ const {kebabCase} = require('lodash');
 exports.onCreateNode = ({ node, actions }) => {
 	const { createNodeField } = actions
 	if (node.internal.type === `MarkdownRemark`) {
-		const slug = kebabCase(node.frontmatter && node.frontmatter.title)
-
 		createNodeField({
 			node,
-			name: `slug`,
-			value: slug,
+			name: 'slug',
+			value: kebabCase(node.frontmatter && node.frontmatter.title),
+		})
+
+    console.log(JSON.stringify(node, null, 2))
+
+    createNodeField({
+			node,
+			name: 'date',
+			value: new Date(node.frontmatter['Publish Date'].start),
 		})
 	}
 }
@@ -26,7 +32,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       {
         allMarkdownRemark(
           filter: { frontmatter: { Published: { eq: true } } }
-          sort: { fields: [frontmatter___Publish_Date___start], order: DESC }
+          sort: { fields: [fields___date], order: DESC }
           limit: 1000
         ) {
           nodes {
@@ -111,6 +117,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Fields {
       slug: String
+      date: Date @dateformat
     }
   `)
 }

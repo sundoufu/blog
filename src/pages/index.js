@@ -28,8 +28,6 @@ const BlogIndex = ({ data, location }) => {
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
-          const publishDate = new Date(post.frontmatter.Publish_Date.start);
-          const publishDateString = publishDate.toLocaleDateString();
 
           return (
             <li key={post.fields.slug}>
@@ -44,7 +42,7 @@ const BlogIndex = ({ data, location }) => {
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>{publishDateString}</small>
+                  <small>{post.fields.date}</small>
                 </header>
                 <section>
                   <p
@@ -80,11 +78,9 @@ export const pageQuery = graphql`
         excerpt
         fields {
           slug
+          date(formatString: "YYYY.MM.DD")
         }
         frontmatter {
-          Publish_Date {
-            start
-          }
           title
           description
         }
