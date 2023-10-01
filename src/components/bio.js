@@ -2,7 +2,7 @@
  * Bio component that queries for data
  * with Gatsby's useStaticQuery component
  *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
+ * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
 import * as React from "react"
@@ -36,7 +36,7 @@ const Bio = () => {
       <StaticImage
         className="bio-avatar"
         layout="fixed"
-        formats={["AUTO", "WEBP", "AVIF"]}
+        formats={["auto", "webp", "avif"]}
         src="../images/profile-pic.jpg"
         width={50}
         height={50}
@@ -44,16 +44,13 @@ const Bio = () => {
         alt="Profile picture"
       />
       {author?.name && (
-        <p>
-          안녕하세요. {author?.summary || null} <strong>{author.name}</strong>입니다. 부족한 글이지만, 재밌게 즐겨주세요 :)
-          {` `}
-          {social?.instagram && <a href={`https://instagram.com/${social?.instagram}`}>
+        <p style={{whiteSpace: 'pre-line'}}>
+          <strong>김재성 </strong>
+          <a href={`https://instagram.com/${social?.instagram || ``}`} target="_blank">
             인스타그램
-          </a>}
-          {` `}
-          {social?.github && <a href={`https://github.com/${social?.github}`}>
-            깃허브
-          </a>}
+          </a>
+          {`\n`}
+          {author?.summary || null}
         </p>
       )}
     </div>

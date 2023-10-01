@@ -8,51 +8,38 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "false": "^0.0.4",
-    "gatsby": "^3.11.1",
-    "gatsby-plugin-gatsby-cloud": "^2.11.0",
-    "gatsby-plugin-google-analytics": "^3.11.0",
-    "gatsby-plugin-image": "^1.11.0",
-    "gatsby-plugin-manifest": "^3.11.0",
-    "gatsby-plugin-offline": "^4.11.0",
-    "gatsby-plugin-react-helmet": "^4.11.0",
-    "gatsby-plugin-sharp": "^3.11.0",
-    "gatsby-remark-copy-linked-files": "^4.8.0",
-    "gatsby-remark-images": "^5.8.0",
-    "gatsby-remark-prismjs": "^5.8.0",
-    "gatsby-remark-responsive-iframe": "^4.8.0",
-    "gatsby-remark-smartypants": "^4.8.0",
-    "gatsby-source-filesystem": "^3.11.0",
-    "gatsby-source-notion-api": "^0.10.0",
-    "gatsby-transformer-remark": "^4.8.0",
-    "gatsby-transformer-sharp": "^3.11.0",
-    "lodash": "^4.17.21",
-    "prismjs": "^1.24.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0",
-    "sharp": "^0.28.3",
-    "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.75"
+    "gatsby": "^5.12.4",
+    "gatsby-plugin-feed": "^5.12.0",
+    "gatsby-plugin-image": "^3.12.0",
+    "gatsby-plugin-manifest": "^5.12.0",
+    "gatsby-plugin-sharp": "^5.12.0",
+    "gatsby-remark-images": "^7.12.0",
+    "gatsby-remark-prismjs": "^7.12.0",
+    "gatsby-remark-responsive-iframe": "^6.12.0",
+    "gatsby-source-filesystem": "^5.12.0",
+    "gatsby-transformer-remark": "^6.12.0",
+    "gatsby-transformer-sharp": "^5.12.0",
+    "prismjs": "^1.29.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
-    "prettier": "2.3.2"
+    "prettier": "^2.8.8"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
     "gatsby"
   ],
   "license": "0BSD",
-  "main": "n/a",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
