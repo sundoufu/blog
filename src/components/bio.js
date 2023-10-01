@@ -45,11 +45,12 @@ const Bio = () => {
       />
       {author?.name && (
         <p style={{whiteSpace: 'pre-line'}}>
-          {author?.summary || null}
-          {`\n`}
+          <strong>김재성 </strong>
           <a href={`https://instagram.com/${social?.instagram || ``}`}>
             인스타그램
           </a>
+          {`\n`}
+          {author?.summary || null}
         </p>
       )}
     </div>
