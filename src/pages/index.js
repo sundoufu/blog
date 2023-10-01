@@ -12,7 +12,6 @@ const BlogIndex = ({ data, location }) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo title="글 목록" />
         <Bio />
         <p>
           작성된 글이 없습니다.
@@ -23,7 +22,6 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="글 목록" />
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
@@ -42,7 +40,7 @@ const BlogIndex = ({ data, location }) => {
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>{post.fields.date}</small>
+                  <small>{post.frontmatter.date}</small>
                 </header>
                 <section>
                   <p
@@ -63,24 +61,28 @@ const BlogIndex = ({ data, location }) => {
 
 export default BlogIndex
 
+/**
+ * Head export to define metadata for the page
+ *
+ * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
+ */
+export const Head = () => <Seo title="글 목록" />
+
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(
-      filter: { frontmatter: { Published: { eq: true } } }
-      sort: { fields: [frontmatter___Publish_Date___start], order: DESC }
-    ) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       nodes {
         excerpt
         fields {
           slug
-          date(formatString: "YYYY.MM.DD")
         }
         frontmatter {
+          date(formatString: "YYYY.MM.DD")
           title
           description
         }

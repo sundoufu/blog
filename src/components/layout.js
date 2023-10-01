@@ -25,9 +25,10 @@ const Layout = ({ location, title, children }) => {
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()}, 이 블로그의 소스 코드는
+      © {new Date().getFullYear()}, 이 블로그의 소스 코드는
         {` `}
-        <a href="https://github.com/sundoufu/blog">깃허브 저장소</a>에 공개되어 있습니다.
+        {/* TODO: 쿼리로 깃허브 아이디 가져오기 */}
+        <a href={`https://github.com/kimjson/blog`}>깃허브</a>에 공개되어 있습니다.
       </footer>
     </div>
   )
