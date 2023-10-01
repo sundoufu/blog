@@ -46,7 +46,7 @@ const Bio = () => {
       {author?.name && (
         <p style={{whiteSpace: 'pre-line'}}>
           <strong>김재성 </strong>
-          <a href={`https://instagram.com/${social?.instagram || ``}`}>
+          <a href={`https://instagram.com/${social?.instagram || ``}`} target="_blank">
             인스타그램
           </a>
           {`\n`}
