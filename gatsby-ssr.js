@@ -9,4 +9,14 @@
  */
 exports.onRenderBody = ({ setHtmlAttributes }) => {
   setHtmlAttributes({ lang: `ko` })
+  setHeadComponents([
+    <link
+      rel="preload"
+      href="/fonts/Pretendard.var.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="anonymous"
+      key="pretendardFont"
+    />,
+  ])
 }
