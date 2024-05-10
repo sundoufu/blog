@@ -9,13 +9,13 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `김재성의 마이크로블로그`,
+    title: `김재성의 비망록`,
     author: {
       name: `김재성`,
       summary: `책, 영화, 인문/사회, 소프트웨어 등을 소재로 가끔씩 글을 씁니다. `,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://blog.kimjs.dev/`,
+    siteUrl: `https://jaeseong.kim/`,
     social: {
       instagram: `jae.s.kim`,
       github: `kimjson`,
